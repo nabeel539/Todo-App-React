@@ -5,9 +5,9 @@ const style = {
     li:`flex justify-between bg-slate-200 font-medium p-4 my-2 capitalize rounded`,
     liComplete:`flex justify-between bg-slate-400 font-medium p-4 my-2 capitalize rounded`,
     row:`flex`,
-    text:`ml-2 cursor-pointer`,
-    textComplete:`ml-2 cursor-pointer line-through`,
-    button:`cursor-pinter flex items-center p-3`
+    text:`ml-2 cursor-pointer p-3`,
+    textComplete:`ml-2 cursor-pointer p-3 line-through`,
+    button:`p-3`
 }
 
 const Todo = ({todo, toggleComplete, deleteTodo}) => {
@@ -17,7 +17,8 @@ const Todo = ({todo, toggleComplete, deleteTodo}) => {
             <input onChange={()=> toggleComplete(todo)} type="checkbox"  checked={todo.completed ? 'checked' : ''}/>
             <p onChange={()=>toggleComplete(todo)} className={todo.completed ? style.textComplete : style.text}>{todo.text}</p>
         </div>
-        <button onClick={()=> deleteTodo(todo.id)}><FaTrashCan /></button>
+        <button className={style.button}
+            onClick={()=> deleteTodo(todo.id)}><FaTrashCan /></button>
     </li>
   )
 }
